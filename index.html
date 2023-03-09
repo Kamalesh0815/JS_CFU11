@@ -79,22 +79,33 @@
     btn.addEventListener("click", (event) => {
       event.preventDefault();
       // console.log("test")
+
       let arr = [];
       let uppercase = document.getElementById("uppercase");
       let lowerCase = document.getElementById("lowercase");
       let number = document.getElementById("numbers");
       let symbols = document.getElementById("symbols");
+
+      // let upperCase = "QWERTYUIOPASDFGHJKLZXCVBNM";
+
+      // let lowerCase = "mnbvcxzlkjhgfdssapoiuytrewq";
+
+      // let number = ["0", "1", "2", "9", "3", "8", "4", "7", "5", "6"];
+
+      // let symbols = ["=", "?", "(", ")", "*", "&", "^", "%"];
+
+
       if (uppercase.checked == true) {
         console.log("cond");
-        arr.push("uppercase");
+        arr.push("upperCase");
       }
 
       if (lowerCase.checked == true) {
-        arr.push("lowercase");
+        arr.push("lowerCase");
       }
 
       if (number.checked == true) {
-        arr.push("number")
+        arr.push("numbers")
       }
 
       if (symbols.checked == true) {
