@@ -18,39 +18,85 @@ function generatePass() {
   let symbols = ["=", "?", "(", ")", "*", "&", "^", "%"];
   let types = JSON.parse(localStorage.getItem("types"));
   let findedType = "";
-  for (let i = 0; i < types.length; i++) {
-    findedType += "" + types[i];
-  }
-  let data = "";
-  if (findedType == "uppercase") {
-    data = upperCase;
-  }
-  if (findedType == "uppercaselowercase") {
-    for (let i = 0; i < 26; i++) {
-      console.log(lowerCase[i]);
-      data += upperCase[i] + lowerCase[i];
-    }
+  // for (let i = 0; i < types.length; i++) {
+  //   findedType += "" + types[i];
+  // }
+  // let data = "";
+  // if (findedType == "uppercase") {
+  //   data = upperCase;
+  // }
+  // if (findedType == "uppercaselowercase") {
+  //   for (let i = 0; i < 26; i++) {
+  //     console.log(lowerCase[i]);
+  //     data += upperCase[i] + lowerCase[i];
+  //   }
+  // }
+
+  // if (findedType == "uppercaselowercasenumber") {
+  //   for (let i = 0; i < 26; i++) {
+  //     console.log(lowerCase[i]);
+  //     data += upperCase[i] + lowerCase[i];
+  //     if (i <= number.length) {
+  //       data += number[i];
+  //     }
+  //   }
+  // }
+
+  // if (findedType == "uppercaselowercasenumbersymbols") {
+  //   for (let i = 0; i < 26; i++) {
+  //     console.log(lowerCase[i]);
+  //     data += upperCase[i] + lowerCase[i];
+  //     if (i <= number.length) {
+  //       data += number[i];
+  //     }
+  //     if (i <= symbols.length) {
+  //       data += symbols[i];
+  //     }
+  //   }
+  // }
+
+  if ((types.length = 1)) {
+    data = types;
   }
 
-  if (findedType == "uppercaselowercasenumber") {
+  if (types.length == 2) {
     for (let i = 0; i < 26; i++) {
-      console.log(lowerCase[i]);
-      data += upperCase[i] + lowerCase[i];
-      if (i <= number.length) {
-        data += number[i];
+      if (types[0].length >= i) {
+        data += types[0][i];
+      }
+      if (types[1][i] > i) {
+        data += types[1][i];
       }
     }
   }
 
-  if (findedType == "uppercaselowercasenumbersymbols") {
+  if (types.length == 3) {
     for (let i = 0; i < 26; i++) {
-      console.log(lowerCase[i]);
-      data += upperCase[i] + lowerCase[i];
-      if (i <= number.length) {
-        data += number[i];
+      if (types[0].length >= i) {
+        data += types[0][i];
       }
-      if (i <= symbols.length) {
-        data += symbols[i];
+      if (types[1][i] > i) {
+        data += types[1][i];
+      }
+      if (types[2][i] > i) {
+        data += types[2][i];
+      }
+    }
+  }
+
+  if (types.length == 4) {
+    for (let i = 0; i < 26; i++) {
+      if (types[0].length >= i) {
+        data += types[0][i];
+      }
+      if (types[1][i] > i) {
+        data += types[1][i];
+      }
+      if (types[2][i] > i) {
+        data += types[1][i];
+      }
+      if (types[3][i] > i) {
+        data += types[3][i];
       }
     }
   }
