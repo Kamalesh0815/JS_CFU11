@@ -9,62 +9,9 @@ document.getElementById("length").addEventListener("change", charLength);
 
 function generatePass() {
   let length = charLength();
-  let upperCase = [
-    "Q",
-    "W",
-    "E",
-    "R",
-    "T",
-    "Y",
-    "U",
-    "I",
-    "O",
-    "P",
-    "A",
-    "S",
-    "D",
-    "F",
-    "G",
-    "H",
-    "J",
-    "K",
-    "L",
-    "Z",
-    "X",
-    "C",
-    "V",
-    "B",
-    "N",
-    "M",
-  ];
+  let upperCase = "QWERTYUIOPASDFGHJKLZXCVBNM";
 
-  let lowerCase = [
-    "m",
-    "n",
-    "b",
-    "v",
-    "c",
-    "x",
-    "z",
-    "l",
-    "k",
-    "j",
-    "h",
-    "g",
-    "f",
-    "d",
-    "s",
-    "a",
-    "p",
-    "o",
-    "i",
-    "y",
-    "t",
-    "r",
-    "e",
-    "w",
-    "q",
-  ];
+  let lowerCase = "mnbvcxzlkjhgfdssapoiuytrewq";
 
   let number = ["0", "1", "2", "9", "3", "8", "4", "7", "5", "6"];
 
@@ -73,10 +20,41 @@ function generatePass() {
   let findedType = "";
   for (let i = 0; i < types.length; i++) {
     findedType += "" + types[i];
-    if (findedType == "uppercase") {
-      data = upperCase;
+  }
+  let data = "";
+  if (findedType == "uppercase") {
+    data = upperCase;
+  }
+  if (findedType == "uppercaselowercase") {
+    for (let i = 0; i < 26; i++) {
+      console.log(lowerCase[i]);
+      data += upperCase[i] + lowerCase[i];
     }
   }
+
+  if (findedType == "uppercaselowercasenumber") {
+    for (let i = 0; i < 26; i++) {
+      console.log(lowerCase[i]);
+      data += upperCase[i] + lowerCase[i];
+      if (i <= number.length) {
+        data += number[i];
+      }
+    }
+  }
+
+  if (findedType == "uppercaselowercasenumbersymbols") {
+    for (let i = 0; i < 26; i++) {
+      console.log(lowerCase[i]);
+      data += upperCase[i] + lowerCase[i];
+      if (i <= number.length) {
+        data += number[i];
+      }
+      if (i <= symbols.length) {
+        data += symbols[i];
+      }
+    }
+  }
+
   console.log(findedType);
 
   let password;
